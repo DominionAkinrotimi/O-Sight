@@ -10,10 +10,8 @@ from api.parsers.opay import OPayAnalyzer
 from api.engine.intelligence import FinancialIntelligenceEngine
 from api.core.encoders import NpEncoder
 
-from fastapi import FastAPI, UploadFile, File, Form
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
-import os
+from pydantic import BaseModel
+from typing import Optional, List
 
 app = FastAPI(title="O-Sight Financial Intelligence API")
 
@@ -39,13 +37,14 @@ BANK_PARSERS = {
 }
 
 LATEST_REPORT = None
+LATEST_ANALYZER = None
 
-@app.get("/api/banks")
+@app.get("/banks")
 async def list_banks():
     """Return list of supported banks and their status."""
     return [{"id": k, "name": v["name"], "status": v["status"]} for k, v in BANK_PARSERS.items()]
 
-@app.post("/api/analyze")
+@app.post("/analyze")
 async def analyze_statement(
     file: UploadFile = File(...),
     bank_type: str = Form(default="opay")
@@ -95,9 +94,6 @@ async def analyze_statement(
         if os.path.exists(temp_path):
             os.remove(temp_path)
 
-from pydantic import BaseModel
-from typing import Optional, List
-
 class FilterParams(BaseModel):
     start_date: Optional[str] = None
     end_date: Optional[str] = None
@@ -105,7 +101,7 @@ class FilterParams(BaseModel):
     min_amount: Optional[float] = None
     max_amount: Optional[float] = None
 
-@app.post("/api/filter")
+@app.post("/filter")
 async def filter_dashboard(params: FilterParams):
     if not LATEST_ANALYZER:
         return JSONResponse(status_code=400, content={"error": "No statement analyzed yet."})
