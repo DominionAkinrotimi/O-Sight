@@ -13,7 +13,7 @@ export default function FilterPanel() {
   const handleApply = async () => {
     setFilterLoading(true);
     try {
-      const res = await fetch('http://localhost:8000/filter', {
+      const res = await fetch('/api/filter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -43,7 +43,7 @@ export default function FilterPanel() {
     // Re-fetch without filters
     setFilterLoading(true);
     try {
-      const res = await fetch('http://localhost:8000/filter', {
+      const res = await fetch('/api/filter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({})

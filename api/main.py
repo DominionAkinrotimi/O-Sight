@@ -41,12 +41,12 @@ try:
 
     LATEST_REPORT = None
 
-    @app.get("/banks")
+    @app.get("/api/banks")
     async def list_banks():
         """Return list of supported banks and their status."""
         return [{"id": k, "name": v["name"], "status": v["status"]} for k, v in BANK_PARSERS.items()]
 
-    @app.post("/analyze")
+    @app.post("/api/analyze")
     async def analyze_statement(
         file: UploadFile = File(...),
         bank_type: str = Form(default="opay")
@@ -106,7 +106,7 @@ try:
         min_amount: Optional[float] = None
         max_amount: Optional[float] = None
 
-    @app.post("/filter")
+    @app.post("/api/filter")
     async def filter_dashboard(params: FilterParams):
         if not LATEST_ANALYZER:
             return JSONResponse(status_code=400, content={"error": "No statement analyzed yet."})
