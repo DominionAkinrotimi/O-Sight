@@ -163,6 +163,10 @@ async def get_category_audit():
     uncategorized = [t for t in transactions if t.get("Category") in ["Other", "Unknown", ""]]
     return JSONResponse(content=json.loads(json.dumps(uncategorized, cls=NpEncoder)))
 
+@app.get("/{path:path}")
+async def debug_catch_all(path: str):
+    """Debug endpoint to confirm API is running"""
+    return {"debug": "API is working", "requested_path": path, "available_routes": ["/banks", "/analyze", "/filter", "/admin/quality/latest", "/admin/audit/merchants", "/admin/audit/categories"]}
 
 if __name__ == "__main__":
     import uvicorn
