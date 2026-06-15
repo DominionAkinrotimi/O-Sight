@@ -39,12 +39,12 @@ BANK_PARSERS = {
 LATEST_REPORT = None
 LATEST_ANALYZER = None
 
-@app.get("/banks")
+@app.get("/api/banks")
 async def list_banks():
     """Return list of supported banks and their status."""
     return [{"id": k, "name": v["name"], "status": v["status"]} for k, v in BANK_PARSERS.items()]
 
-@app.post("/analyze")
+@app.post("/api/analyze")
 async def analyze_statement(
     file: UploadFile = File(...),
     bank_type: str = Form(default="opay")
@@ -101,7 +101,7 @@ class FilterParams(BaseModel):
     min_amount: Optional[float] = None
     max_amount: Optional[float] = None
 
-@app.post("/filter")
+@app.post("/api/filter")
 async def filter_dashboard(params: FilterParams):
     if not LATEST_ANALYZER:
         return JSONResponse(status_code=400, content={"error": "No statement analyzed yet."})
@@ -143,19 +143,19 @@ async def filter_dashboard(params: FilterParams):
             content={"error": str(e), "traceback": traceback.format_exc()}
         )
 
-@app.get("/admin/quality/latest")
+@app.get("/api/admin/quality/latest")
 async def get_latest_quality():
     if not LATEST_REPORT:
         return JSONResponse(status_code=404, content={"error": "No reports processed yet"})
     return JSONResponse(content=json.loads(json.dumps(LATEST_REPORT.get("quality_report", {}), cls=NpEncoder)))
 
-@app.get("/admin/audit/merchants")
+@app.get("/api/admin/audit/merchants")
 async def get_merchant_audit():
     if not LATEST_REPORT:
         return JSONResponse(status_code=404, content={"error": "No reports processed yet"})
     return JSONResponse(content=json.loads(json.dumps(LATEST_REPORT.get("merchant_ranking", []), cls=NpEncoder)))
 
-@app.get("/admin/audit/categories")
+@app.get("/api/admin/audit/categories")
 async def get_category_audit():
     if not LATEST_REPORT:
         return JSONResponse(status_code=404, content={"error": "No reports processed yet"})
