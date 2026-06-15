@@ -48,10 +48,14 @@ export default function Landing() {
         method: 'POST',
         body: formData,
       });
-      const result = await res.json();
-      if (!res.ok) throw new Error(result.error || 'Analysis failed. Make sure it is a valid OPay statement.');
-      setData(result);
-      navigate('/dashboard');
+      const data = await res.json();
+      if (data.success === false || !data.profile) {
+        setError(data.error || data.detail || 'Failed to analyze statement. Please try again.');
+        setLoading(false);
+      } else {
+        setData(data);
+        navigate('/dashboard');
+      }
     } catch (err) {
       setError(err.message || 'Analysis failed. Please try again.');
     } finally {
@@ -80,11 +84,9 @@ export default function Landing() {
       
       {/* Navigation */}
       <nav style={{ padding: '24px 48px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(12px)', position: 'sticky', top: 0, zIndex: 100, borderBottom: '1px solid rgba(226, 232, 240, 0.8)' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <div style={{ width: '32px', height: '32px', background: 'var(--accent)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 'bold', fontSize: '18px', boxShadow: '0 4px 12px rgba(92, 125, 97, 0.2)' }}>
-            O
-          </div>
-          <span style={{ fontSize: '20px', fontWeight: '700', color: 'var(--text-primary)', letterSpacing: '-0.5px' }}>O-Sight</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ width: '28px', height: '28px', borderRadius: '50%', backgroundColor: '#1e293b' }} />
+          <span style={{ fontSize: '24px', fontWeight: '800', color: 'var(--text-primary)', textDecoration: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '3px' }}>Sight</span>
         </div>
         <div style={{ display: 'flex', gap: '32px', fontSize: '14px', fontWeight: '600', color: 'var(--text-secondary)', alignItems: 'center' }}>
           <a href="#how-it-works" style={{ color: 'inherit', textDecoration: 'none', transition: 'color 0.2s' }}>How it Works</a>

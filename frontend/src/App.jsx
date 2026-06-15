@@ -47,7 +47,10 @@ function DashboardLayout() {
     <div className="app-layout">
       <aside className="sidebar">
         <div className="sidebar-logo">
-          <h1>O-Sight</h1>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+            <div style={{ width: '28px', height: '28px', borderRadius: '50%', backgroundColor: '#1e293b' }} />
+            <h1 style={{ margin: 0, fontSize: '26px', fontWeight: '800', color: 'var(--text-primary)', textDecoration: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '3px' }}>Sight</h1>
+          </div>
           <p>Financial Intelligence</p>
         </div>
 
