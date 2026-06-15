@@ -1,7 +1,0 @@
-{
-  "name": "o-sight-root",
-  "version": "1.0.0",
-  "scripts": {
-    "build": "cd frontend && npm install && npm run build && cd .. && node -e \"const fs=require('fs'); fs.rmSync('public', {recursive:true, force:true}); fs.renameSync('frontend/dist', 'public');\""
-  }
-}
