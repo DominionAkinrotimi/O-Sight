@@ -59,3 +59,10 @@ The application will usually be available at `http://localhost:5173`.
 1. Open the frontend in your browser.
 2. Drag and drop your bank statement (currently optimized for OPay/standard Nigerian banking statement exports) into the upload area.
 3. The intelligence engine will automatically categorize your data and render the dashboard. Navigate through the sidebar to explore Spending, Income, Savings, Insights, and Merchants.
+
+## 🗺️ Roadmap & Future Plans
+
+* **Enhanced NLP Classifier:** Implement a rule-based and fuzzy token matching classification engine to break down generic `Transfers Out`, `Transfers In`, and `Merchants & Services` into specific high-fidelity spending categories (e.g., *Food & Dining*, *Transport*, *Bills & Utilities*, *Entertainment*, *Health*, *Shopping*).
+* **Multi-Bank Support:** Add dedicated parsers for other major Nigerian banks (GTBank, Access Bank, UBA, Zenith Bank, Kuda, PalmPay, Moniepoint).
+* **Local Historical Archiving:** Implement a lightweight local storage option (IndexedDB or SQLite) to save past statements and generate month-over-month or year-over-year financial reports.
+
