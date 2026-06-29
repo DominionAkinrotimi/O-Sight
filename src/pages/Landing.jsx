@@ -99,8 +99,8 @@ export default function Landing() {
       </nav>
 
       {/* Hero Section */}
-      <section style={{ padding: 'clamp(40px, 8vw, 60px) 24px', display: 'flex', justifyContent: 'center' }}>
-        <div style={{ maxWidth: '1200px', width: '100%', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: 'clamp(32px, 5vw, 48px)', alignItems: 'center' }}>
+      <section style={{ padding: 'clamp(40px, 8vw, 60px) clamp(16px, 4vw, 24px)', display: 'flex', justifyContent: 'center' }}>
+        <div style={{ maxWidth: '1200px', width: '100%', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 'clamp(24px, 5vw, 48px)', alignItems: 'center' }}>
           
           {/* Left Side: Text and CTA */}
           <div style={{ textAlign: 'left' }}>
@@ -170,7 +170,7 @@ export default function Landing() {
           </div>
 
           {/* Right Side: Mock Chart Dashboard */}
-          <div style={{ background: 'white', borderRadius: '24px', padding: '32px', boxShadow: '0 24px 60px rgba(0,0,0,0.08)', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          <div style={{ background: 'white', borderRadius: 'clamp(16px, 3vw, 24px)', padding: 'clamp(20px, 4vw, 32px)', boxShadow: '0 24px 60px rgba(0,0,0,0.08)', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
                 <h4 style={{ fontSize: '14px', color: 'var(--text-secondary)', fontWeight: '600', marginBottom: '4px' }}>Total Weekly Spend</h4>
@@ -179,7 +179,7 @@ export default function Landing() {
               <div style={{ background: 'var(--bg-primary)', color: 'var(--accent)', padding: '8px 16px', borderRadius: '100px', fontWeight: '700', fontSize: '14px' }}>-12% vs last week</div>
             </div>
 
-            <div style={{ height: '200px', width: '100%' }}>
+            <div style={{ height: 'clamp(150px, 40vw, 200px)', width: '100%' }}>
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={mockChartData} margin={{ top: 10, right: 0, left: -20, bottom: 0 }}>
                   <defs>
@@ -200,7 +200,7 @@ export default function Landing() {
               </ResponsiveContainer>
             </div>
             
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '12px' }}>
               <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '16px' }}>
                 <div style={{ fontSize: '13px', color: 'var(--text-secondary)', fontWeight: '600', marginBottom: '8px' }}>Top Merchant</div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -232,15 +232,15 @@ export default function Landing() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(40px, 8vw, 80px)', marginTop: '60px' }}>
             
             {/* Feature 1 */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '60px', flexWrap: 'wrap' }}>
-              <div style={{ flex: '1 1 400px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(20px, 5vw, 60px)', flexWrap: 'wrap' }}>
+              <div style={{ flex: '1 1 300px', minWidth: 'clamp(250px, 90vw, 400px)' }}>
                 <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '64px', height: '64px', borderRadius: '20px', background: 'rgba(92, 125, 97, 0.1)', color: 'var(--accent)', marginBottom: '24px' }}>
                   <Search size={32} />
                 </div>
                 <h3 style={{ fontSize: '32px', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '16px', letterSpacing: '-1px' }}>Merchant Breakdown</h3>
                 <p style={{ fontSize: '18px', color: 'var(--text-secondary)', lineHeight: '1.7' }}>See exactly who you sent money to, neatly grouped. No more guessing what "TRANSFER TO 12345" means.</p>
               </div>
-              <div style={{ flex: '1 1 400px', height: '320px', background: 'linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%)', borderRadius: '32px', border: '1px solid white', boxShadow: '0 20px 40px rgba(0,0,0,0.05)', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ flex: '1 1 300px', minWidth: 'clamp(250px, 90vw, 400px)', height: 'clamp(250px, 50vw, 320px)', background: 'linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%)', borderRadius: '32px', border: '1px solid white', boxShadow: '0 20px 40px rgba(0,0,0,0.05)', position: 'relative', overflow: 'hidden' }}>
                  <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: 'white', padding: '24px', borderRadius: '16px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', width: '80%' }}>
                    <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f1f5f9', paddingBottom: '16px', marginBottom: '16px' }}>
                      <span style={{ fontWeight: '800', fontSize: '16px' }}>Uber</span><span style={{ color: 'var(--text-secondary)', fontWeight: '600' }}>12 Transactions</span>
@@ -256,15 +256,15 @@ export default function Landing() {
             </div>
 
             {/* Feature 2 */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '60px', flexWrap: 'wrap', flexDirection: 'row-reverse' }}>
-              <div style={{ flex: '1 1 400px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(20px, 5vw, 60px)', flexWrap: 'wrap', flexDirection: 'row-reverse' }}>
+              <div style={{ flex: '1 1 300px', minWidth: 'clamp(250px, 90vw, 400px)' }}>
                 <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '64px', height: '64px', borderRadius: '20px', background: 'rgba(239, 68, 68, 0.1)', color: '#ef4444', marginBottom: '24px' }}>
                   <AlertTriangle size={32} />
                 </div>
                 <h3 style={{ fontSize: '32px', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '16px', letterSpacing: '-1px' }}>Anomaly Detection</h3>
                 <p style={{ fontSize: '18px', color: 'var(--text-secondary)', lineHeight: '1.7' }}>We automatically flag unusual spending spikes, unexpected duplicate charges, and new vendors you haven't seen before.</p>
               </div>
-              <div style={{ flex: '1 1 400px', height: '320px', background: 'linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%)', borderRadius: '32px', border: '1px solid white', boxShadow: '0 20px 40px rgba(0,0,0,0.05)', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ flex: '1 1 300px', minWidth: 'clamp(250px, 90vw, 400px)', height: 'clamp(250px, 50vw, 320px)', background: 'linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%)', borderRadius: '32px', border: '1px solid white', boxShadow: '0 20px 40px rgba(0,0,0,0.05)', position: 'relative', overflow: 'hidden' }}>
                 <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: 'white', padding: '24px', borderRadius: '16px', boxShadow: '0 10px 30px rgba(239,68,68,0.15)', width: '85%', borderLeft: '4px solid #ef4444' }}>
                    <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
                      <div style={{ background: '#fef2f2', padding: '12px', borderRadius: '12px' }}><AlertTriangle color="#ef4444" size={24} /></div>
@@ -278,15 +278,15 @@ export default function Landing() {
             </div>
 
             {/* Feature 3 */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '60px', flexWrap: 'wrap' }}>
-              <div style={{ flex: '1 1 400px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(20px, 5vw, 60px)', flexWrap: 'wrap' }}>
+              <div style={{ flex: '1 1 300px', minWidth: 'clamp(250px, 90vw, 400px)' }}>
                 <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '64px', height: '64px', borderRadius: '20px', background: 'rgba(59, 130, 246, 0.1)', color: '#3b82f6', marginBottom: '24px' }}>
                   <CheckCircle2 size={32} />
                 </div>
                 <h3 style={{ fontSize: '32px', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '16px', letterSpacing: '-1px' }}>Precision Accuracy</h3>
                 <p style={{ fontSize: '18px', color: 'var(--text-secondary)', lineHeight: '1.7' }}>We correctly subtract internal sweeps between your own accounts to give you true income and expense totals without inflation.</p>
               </div>
-              <div style={{ flex: '1 1 400px', height: '320px', background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)', borderRadius: '32px', border: '1px solid white', boxShadow: '0 20px 40px rgba(0,0,0,0.05)', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ flex: '1 1 300px', minWidth: 'clamp(250px, 90vw, 400px)', height: 'clamp(250px, 50vw, 320px)', background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)', borderRadius: '32px', border: '1px solid white', boxShadow: '0 20px 40px rgba(0,0,0,0.05)', position: 'relative', overflow: 'hidden' }}>
                  <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: 'white', padding: '32px', borderRadius: '16px', boxShadow: '0 10px 30px rgba(59,130,246,0.1)', width: '80%' }}>
                    <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f1f5f9', paddingBottom: '16px', marginBottom: '16px' }}>
                      <span style={{ color: 'var(--text-secondary)', fontWeight: '600' }}>Raw Expenses</span><span style={{ fontWeight: '800', color: '#ef4444' }}>₦ 150,000</span>
