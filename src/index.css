@@ -4,37 +4,35 @@
 
 /* --- DESIGN TOKENS --- */
 :root {
-  --bg-primary: #f8fafc;
-  --bg-secondary: #ffffff;
-  --bg-tertiary: #f1f5f9;
-  --surface-1: #ffffff;
-  --surface-2: #f8fafc;
-  --surface-hover: #f1f5f9;
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #111111;
+  --bg-tertiary: #1a1a1a;
+  --surface-1: #1a1a1a;
+  --surface-2: #262626;
+  --surface-hover: #333333;
 
-  --accent: #5c7d61;
-  --accent-light: #7c9c81;
-  --accent-glow: rgba(92, 125, 97, 0.15);
+  --accent: #ec4899;
+  --accent-light: #f472b6;
+  --accent-glow: rgba(236, 72, 153, 0.2);
   --green: #10b981;
   --green-light: #34d399;
-  --green-bg: rgba(16, 185, 129, 0.1);
+  --green-bg: rgba(16, 185, 129, 0.15);
   --red: #ef4444;
   --red-light: #f87171;
-  --red-bg: rgba(239, 68, 68, 0.1);
+  --red-bg: rgba(239, 68, 68, 0.15);
   --amber: #f59e0b;
   --amber-light: #fbbf24;
-  --amber-bg: rgba(245, 158, 11, 0.1);
+  --amber-bg: rgba(245, 158, 11, 0.15);
   --blue: #3b82f6;
-  --blue-bg: rgba(59, 130, 246, 0.1);
-  
-  /* Replacing purple with a sage green variant to keep class names working but colors green */
-  --purple: #6d8e72;
-  --purple-bg: rgba(109, 142, 114, 0.15);
+  --blue-bg: rgba(59, 130, 246, 0.15);
+  --purple: #a78bfa;
+  --purple-bg: rgba(167, 139, 250, 0.15);
 
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
-  --border: #e2e8f0;
-  --border-hover: #cbd5e1;
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1a1;
+  --text-muted: #737373;
+  --border: #333333;
+  --border-hover: #404040;
 
   --sidebar-width: 260px;
   --topbar-height: 0px;
@@ -52,11 +50,15 @@
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  background: var(--bg-primary);
+  background: #0a0a0a;
   color: var(--text-primary);
   min-height: 100vh;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+html {
+  background: #0a0a0a;
 }
 
 a { color: var(--accent-light); text-decoration: none; }
@@ -735,6 +737,7 @@ a:hover { text-decoration: underline; }
     z-index: 200;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
+    background: #1a1a1a;
   }
 
   .sidebar.mobile-open {
@@ -748,7 +751,7 @@ a:hover { text-decoration: underline; }
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
     z-index: 150;
   }
 
@@ -763,6 +766,10 @@ a:hover { text-decoration: underline; }
 
   .page-container {
     padding: 16px;
+  }
+
+  section {
+    scroll-margin-top: 60px;
   }
 
   .stat-grid {
@@ -888,8 +895,9 @@ a:hover { text-decoration: underline; }
   }
 
   .btn {
-    padding: 6px 12px;
-    font-size: 12px;
+    padding: 10px 20px;
+    font-size: 14px;
+    min-width: fit-content;
   }
 
   .data-table {
@@ -937,5 +945,24 @@ a:hover { text-decoration: underline; }
 
   .nav-section-title {
     font-size: 9px;
+  }
+
+  /* Landing page mobile optimizations */
+  h1 {
+    font-size: clamp(28px, 7vw, 48px) !important;
+    line-height: 1.15 !important;
+  }
+
+  h2 {
+    font-size: clamp(24px, 6vw, 36px) !important;
+  }
+
+  p {
+    font-size: clamp(14px, 3vw, 16px) !important;
+  }
+
+  button {
+    padding: clamp(10px, 2vw, 14px) clamp(20px, 4vw, 32px) !important;
+    font-size: clamp(13px, 2.5vw, 15px) !important;
   }
 }
