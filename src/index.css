@@ -735,7 +735,6 @@ a:hover { text-decoration: underline; }
     z-index: 200;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
-    background: var(--bg-secondary);
   }
 
   .sidebar.mobile-open {
@@ -749,7 +748,7 @@ a:hover { text-decoration: underline; }
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.5);
     z-index: 150;
   }
 
@@ -764,10 +763,6 @@ a:hover { text-decoration: underline; }
 
   .page-container {
     padding: 16px;
-  }
-
-  section {
-    scroll-margin-top: 60px;
   }
 
   .stat-grid {
@@ -893,9 +888,8 @@ a:hover { text-decoration: underline; }
   }
 
   .btn {
-    padding: 10px 20px;
-    font-size: 14px;
-    min-width: fit-content;
+    padding: 6px 12px;
+    font-size: 12px;
   }
 
   .data-table {
@@ -943,24 +937,5 @@ a:hover { text-decoration: underline; }
 
   .nav-section-title {
     font-size: 9px;
-  }
-
-  /* Landing page mobile optimizations */
-  h1 {
-    font-size: clamp(28px, 7vw, 48px) !important;
-    line-height: 1.15 !important;
-  }
-
-  h2 {
-    font-size: clamp(24px, 6vw, 36px) !important;
-  }
-
-  p {
-    font-size: clamp(14px, 3vw, 16px) !important;
-  }
-
-  button {
-    padding: clamp(10px, 2vw, 14px) clamp(20px, 4vw, 32px) !important;
-    font-size: clamp(13px, 2.5vw, 15px) !important;
   }
 }
