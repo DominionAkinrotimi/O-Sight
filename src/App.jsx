@@ -2,7 +2,7 @@ import React, { createContext, useState, useContext } from 'react';
 import { Routes, Route, NavLink, Outlet, useNavigate, Navigate } from 'react-router-dom';
 import {
   LayoutDashboard, ArrowLeftRight, PieChart, TrendingUp,
-  PiggyBank, Lightbulb, UploadCloud, LogOut, Store
+  PiggyBank, Lightbulb, UploadCloud, LogOut, Store, Menu, X
 } from 'lucide-react';
 
 import Landing from './pages/Landing.jsx';
@@ -26,6 +26,7 @@ import FilterPanel from './components/FilterPanel.jsx';
 
 function DashboardLayout() {
   const { data, clearData, filterLoading } = useAnalysis();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   if (!data) return <Navigate to="/" replace />;
 
@@ -43,9 +44,13 @@ function DashboardLayout() {
     { to: "/insights", icon: Lightbulb, label: "Insights" },
   ];
 
+  const closeSidebar = () => setSidebarOpen(false);
+
   return (
     <div className="app-layout">
-      <aside className="sidebar">
+      <div className={`sidebar-overlay ${sidebarOpen ? 'mobile-open' : ''}`} onClick={closeSidebar} />
+      
+      <aside className={`sidebar ${sidebarOpen ? 'mobile-open' : ''}`}>
         <div className="sidebar-logo">
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
             <div style={{ width: '28px', height: '28px', borderRadius: '50%', backgroundColor: '#1e293b' }} />
@@ -88,6 +93,16 @@ function DashboardLayout() {
 
       <main className="main-content">
         <div className="page-container" style={{ opacity: filterLoading ? 0.5 : 1, transition: 'opacity 0.3s' }}>
+          <div style={{ display: 'none', marginBottom: '16px' }} className="mobile-menu-button">
+            <button 
+              className="btn btn-ghost" 
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+              style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
+            >
+              {sidebarOpen ? <X size={20} /> : <Menu size={20} />}
+              {sidebarOpen ? 'Close' : 'Menu'}
+            </button>
+          </div>
           <FilterPanel />
           <Outlet />
         </div>

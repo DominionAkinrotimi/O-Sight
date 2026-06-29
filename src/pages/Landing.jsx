@@ -83,38 +83,38 @@ export default function Landing() {
     <div style={{ minHeight: '100vh', backgroundColor: '#f8fafc', backgroundImage: 'linear-gradient(to right, rgba(148, 163, 184, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(148, 163, 184, 0.1) 1px, transparent 1px)', backgroundSize: '40px 40px', display: 'flex', flexDirection: 'column', fontFamily: 'Inter, sans-serif' }}>
       
       {/* Navigation */}
-      <nav style={{ padding: '24px 48px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(12px)', position: 'sticky', top: 0, zIndex: 100, borderBottom: '1px solid rgba(226, 232, 240, 0.8)' }}>
+      <nav style={{ padding: 'clamp(16px, 4vw, 24px) clamp(16px, 5vw, 48px)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(12px)', position: 'sticky', top: 0, zIndex: 100, borderBottom: '1px solid rgba(226, 232, 240, 0.8)', flexWrap: 'wrap' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <div style={{ width: '28px', height: '28px', borderRadius: '50%', backgroundColor: '#1e293b' }} />
-          <span style={{ fontSize: '24px', fontWeight: '800', color: 'var(--text-primary)', textDecoration: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '3px' }}>Sight</span>
+          <div style={{ width: '24px', height: '24px', borderRadius: '50%', backgroundColor: '#1e293b' }} />
+          <span style={{ fontSize: 'clamp(20px, 5vw, 24px)', fontWeight: '800', color: 'var(--text-primary)', textDecoration: 'underline', textUnderlineOffset: '4px', textDecorationThickness: '3px' }}>Sight</span>
         </div>
-        <div style={{ display: 'flex', gap: '32px', fontSize: '14px', fontWeight: '600', color: 'var(--text-secondary)', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: 'clamp(16px, 3vw, 32px)', fontSize: 'clamp(12px, 2.5vw, 14px)', fontWeight: '600', color: 'var(--text-secondary)', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
           <a href="#how-it-works" style={{ color: 'inherit', textDecoration: 'none', transition: 'color 0.2s' }}>How it Works</a>
           <a href="#features" style={{ color: 'inherit', textDecoration: 'none', transition: 'color 0.2s' }}>Features</a>
           <a href="#privacy" style={{ color: 'inherit', textDecoration: 'none', transition: 'color 0.2s' }}>Privacy</a>
-          <a href="https://github.com/DominionAkinrotimi/O-Sight" target="_blank" rel="noreferrer" style={{ background: '#1e293b', color: 'white', padding: '8px 16px', borderRadius: '8px', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 4px 14px rgba(0, 0, 0, 0.1)', transition: 'transform 0.2s' }}>
-            <Code size={16} /> GitHub
+          <a href="https://github.com/DominionAkinrotimi/O-Sight" target="_blank" rel="noreferrer" style={{ background: '#1e293b', color: 'white', padding: '8px 12px', borderRadius: '8px', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px', boxShadow: '0 4px 14px rgba(0, 0, 0, 0.1)', transition: 'transform 0.2s', whiteSpace: 'nowrap' }}>
+            <Code size={14} /> GitHub
           </a>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section style={{ padding: '60px 24px', display: 'flex', justifyContent: 'center' }}>
-        <div style={{ maxWidth: '1200px', width: '100%', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '48px', alignItems: 'center' }}>
+      <section style={{ padding: 'clamp(40px, 8vw, 60px) 24px', display: 'flex', justifyContent: 'center' }}>
+        <div style={{ maxWidth: '1200px', width: '100%', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: 'clamp(32px, 5vw, 48px)', alignItems: 'center' }}>
           
           {/* Left Side: Text and CTA */}
           <div style={{ textAlign: 'left' }}>
-            <h1 style={{ fontSize: '64px', fontWeight: '800', color: 'var(--text-primary)', lineHeight: '1.1', marginBottom: '24px', letterSpacing: '-2px' }}>
+            <h1 style={{ fontSize: 'clamp(32px, 8vw, 64px)', fontWeight: '800', color: 'var(--text-primary)', lineHeight: '1.1', marginBottom: '24px', letterSpacing: '-2px' }}>
               Stop guessing where your money goes.
             </h1>
             
-            <p style={{ fontSize: '20px', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '40px' }}>
+            <p style={{ fontSize: 'clamp(16px, 4vw, 20px)', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '40px' }}>
               Upload your bank statement. Get a complete, instant audit of your spending, saving, and financial health.
             </p>
 
             {/* Clear Call to Action (Upload Zone) */}
-            <div style={{ background: 'white', borderRadius: '24px', padding: '32px', boxShadow: '0 12px 40px rgba(0,0,0,0.06)', border: '1px solid rgba(226, 232, 240, 0.8)', position: 'relative' }}>
-              <div style={{ position: 'absolute', top: '-14px', left: '24px', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--green)', fontSize: '13px', fontWeight: '700', background: '#dcfce7', padding: '6px 16px', borderRadius: '100px', border: '1px solid #bbf7d0', boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
+            <div style={{ background: 'white', borderRadius: 'clamp(16px, 3vw, 24px)', padding: 'clamp(20px, 4vw, 32px)', boxShadow: '0 12px 40px rgba(0,0,0,0.06)', border: '1px solid rgba(226, 232, 240, 0.8)', position: 'relative' }}>
+              <div style={{ position: 'absolute', top: '-14px', left: '24px', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--green)', fontSize: 'clamp(11px, 2vw, 13px)', fontWeight: '700', background: '#dcfce7', padding: '6px 16px', borderRadius: '100px', border: '1px solid #bbf7d0', boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
                 <Lock size={14} /> 
                 <span>Analyzed locally. Deleted instantly.</span>
               </div>
@@ -123,7 +123,7 @@ export default function Landing() {
                 style={{
                   border: dragOver ? '2px dashed var(--accent)' : '2px dashed #cbd5e1',
                   borderRadius: '16px',
-                  padding: '40px 20px',
+                  padding: 'clamp(24px, 5vw, 40px) clamp(16px, 3vw, 20px)',
                   textAlign: 'center',
                   background: dragOver ? '#f0fdf4' : '#f8fafc',
                   cursor: loading ? 'not-allowed' : 'pointer',
@@ -140,15 +140,15 @@ export default function Landing() {
                 {loading ? (
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <div style={{ width: '40px', height: '40px', border: '3px solid var(--border)', borderTopColor: 'var(--accent)', borderRadius: '50%', animation: 'spin 1s linear infinite', marginBottom: '16px' }} />
-                    <h3 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--text-primary)' }}>Analyzing Statement...</h3>
+                    <h3 style={{ fontSize: 'clamp(14px, 3vw, 16px)', fontWeight: '700', color: 'var(--text-primary)' }}>Analyzing Statement...</h3>
                   </div>
                 ) : (
                   <div>
                     <div style={{ width: '56px', height: '56px', background: 'white', border: '1px solid var(--border)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px', boxShadow: '0 4px 12px rgba(0,0,0,0.03)' }}>
                       <UploadCloud size={24} color="var(--accent)" />
                     </div>
-                    <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'var(--text-primary)' }}>Upload statement (Excel)</h3>
-                    <p style={{ fontSize: '14px', color: 'var(--text-secondary)', marginTop: '8px' }}>Drag & drop or click</p>
+                    <h3 style={{ fontSize: 'clamp(16px, 4vw, 18px)', fontWeight: '700', color: 'var(--text-primary)' }}>Upload statement (Excel)</h3>
+                    <p style={{ fontSize: 'clamp(12px, 3vw, 14px)', color: 'var(--text-secondary)', marginTop: '8px' }}>Drag & drop or click</p>
                   </div>
                 )}
               </div>
@@ -222,14 +222,14 @@ export default function Landing() {
       </section>
 
       {/* Features Section */}
-      <section id="features" style={{ padding: '60px 48px', background: 'rgba(255,255,255,0.9)', backdropFilter: 'blur(10px)', borderTop: '1px solid rgba(226, 232, 240, 0.8)' }}>
+      <section id="features" style={{ padding: 'clamp(40px, 8vw, 60px) clamp(20px, 5vw, 48px)', background: 'rgba(255,255,255,0.9)', backdropFilter: 'blur(10px)', borderTop: '1px solid rgba(226, 232, 240, 0.8)' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-            <h2 style={{ fontSize: '36px', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '16px', letterSpacing: '-1px' }}>What you'll discover</h2>
-            <p style={{ fontSize: '18px', color: 'var(--text-secondary)' }}>We turn messy rows of transactions into clear, undeniable truths.</p>
+            <h2 style={{ fontSize: 'clamp(28px, 6vw, 36px)', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '16px', letterSpacing: '-1px' }}>What you'll discover</h2>
+            <p style={{ fontSize: 'clamp(16px, 3vw, 18px)', color: 'var(--text-secondary)' }}>We turn messy rows of transactions into clear, undeniable truths.</p>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', marginTop: '60px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(40px, 8vw, 80px)', marginTop: '60px' }}>
             
             {/* Feature 1 */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '60px', flexWrap: 'wrap' }}>
