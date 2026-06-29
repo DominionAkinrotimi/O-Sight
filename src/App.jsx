@@ -113,10 +113,20 @@ function DashboardLayout() {
 
 // ---- ROOT APP ----
 function App() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(() => {
+    try {
+      const stored = localStorage.getItem('analysisData');
+      return stored ? JSON.parse(stored) : null;
+    } catch {
+      return null;
+    }
+  });
   const [filterLoading, setFilterLoading] = useState(false);
 
-  const clearData = () => setData(null);
+  const clearData = () => {
+    setData(null);
+    localStorage.removeItem('analysisData');
+  };
 
   return (
     <AnalysisContext.Provider value={{ data, setData, clearData, filterLoading, setFilterLoading }}>

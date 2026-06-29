@@ -1,7 +1,6 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UploadCloud, Shield, HelpCircle, CheckCircle2, Lock, FileSpreadsheet, Search, AlertTriangle, Code } from 'lucide-react';
-import { AnalysisContext } from '../App.jsx';
 import { AreaChart, Area, ResponsiveContainer, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 
 const mockChartData = [
@@ -33,7 +32,6 @@ export default function Landing() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [dragOver, setDragOver] = useState(false);
-  const { setData } = useContext(AnalysisContext);
   const navigate = useNavigate();
 
   const handleUpload = async (file) => {
@@ -53,7 +51,7 @@ export default function Landing() {
         setError(data.error || data.detail || 'Failed to analyze statement. Please try again.');
         setLoading(false);
       } else {
-        setData(data);
+        localStorage.setItem('analysisData', JSON.stringify(data));
         navigate('/dashboard');
       }
     } catch (err) {
