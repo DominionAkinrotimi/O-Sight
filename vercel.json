@@ -1,13 +1,22 @@
 {
+  "buildCommand": "npm run build",
   "outputDirectory": "dist",
+  "functions": {
+    "api/index.py": {
+      "runtime": "python3.12",
+      "maxDuration": 60
+    }
+  },
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/api/index.py"
+      "dest": "/api/index.py",
+      "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS", "HEAD"]
     },
     {
-      "src": "^/(?!api|_next|_vercel|.*\\.).*$",
-      "dest": "/index.html"
+      "src": "/(.*)",
+      "dest": "/index.html",
+      "status": 200
     }
   ]
 }
