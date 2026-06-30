@@ -6,7 +6,11 @@
       "dest": "/api/index.py"
     },
     {
-      "src": "/(?!api).*",
+      "src": "/(.*\\..*)",
+      "dest": "/$1"
+    },
+    {
+      "src": "/.*",
       "dest": "/index.html"
     }
   ]
