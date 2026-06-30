@@ -1,14 +1,23 @@
 import json
 import os
+import sys
 import numpy as np
 import pandas as pd
 from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from api.parsers.opay import OPayAnalyzer
-from api.engine.intelligence import FinancialIntelligenceEngine
-from api.core.encoders import NpEncoder
+# Add current directory to path for imports
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+try:
+    from api.parsers.opay import OPayAnalyzer
+    from api.engine.intelligence import FinancialIntelligenceEngine
+    from api.core.encoders import NpEncoder
+except ImportError:
+    from parsers.opay import OPayAnalyzer
+    from engine.intelligence import FinancialIntelligenceEngine
+    from core.encoders import NpEncoder
 
 from pydantic import BaseModel
 from typing import Optional, List
@@ -38,6 +47,12 @@ BANK_PARSERS = {
 
 LATEST_REPORT = None
 LATEST_ANALYZER = None
+
+@app.get("/")
+@app.get("/api/health")
+async def health_check():
+    """Health check endpoint."""
+    return {"status": "ok", "service": "O-Sight Financial Intelligence API"}
 
 @app.get("/banks")
 @app.get("/api/banks")
