@@ -48,7 +48,6 @@ BANK_PARSERS = {
 LATEST_REPORT = None
 LATEST_ANALYZER = None
 
-@app.get("/")
 @app.get("/api/health")
 async def health_check():
     """Health check endpoint."""
